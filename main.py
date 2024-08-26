@@ -4,8 +4,6 @@ import pandas as pd
 from datetime import time, datetime
 import streamlit as st
 
-st.write('Day 1-13')
-
 # st.write 
 st.header('st.write')
 st.write('Hello, *World!* :sunglasses:')
@@ -98,3 +96,25 @@ if coffee:
     st.write('☕')
 if cola:
     st.write('🥤')
+
+st.header('st.latex')
+st.latex(r'''
+         a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+         \sum_{k=0}^{n-1} ar^k =
+         a \left(\frac{1-r^n}{1-r}\right)
+''')
+
+st.header('st.secrets')
+st.write(st.secrets['message'])
+
+st.header('st.file_uploader')
+st.subheader('CSV')
+file = st.file_uploader('choose a file')
+if file is not None:
+    df = pd.read_csv(file)
+    st.subheader('dataframe')
+    st.write(df)
+    st.subheader('describe')
+    st.write(df.describe())
+else:
+    st.info('☝️ Upload a CSV file')
