@@ -1,1 +1,3 @@
 /streamlit_venv
+/.devcontainer
+.streamlit/secrets.toml
